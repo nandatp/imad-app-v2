@@ -1,10 +1,10 @@
 var express = require('express');
 var morgan = require('morgan');
 var path = require('path');
-
 var app = express();
 app.use(morgan('combined'));
-Var content = {
+
+Var articleOne = {
     title: 'Article One | Nanda',
     heading: 'Article One',
     date: 'March 6th,2017',
@@ -18,7 +18,6 @@ Var content = {
       <p>
           Content for my first article. Content for my first article. Content for my first article.Content for my first article.Content for my first article.
       </p>`
-      
 };
 
 app.get('/', function (req, res) {
