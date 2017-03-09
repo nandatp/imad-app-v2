@@ -70,9 +70,10 @@ var htmltemplate = `
       <div>
      $(content)
       </div>
+      </div>
   </body>  
 </html>
-p;
+`;
 return htmlTemplate;
 } 
 
