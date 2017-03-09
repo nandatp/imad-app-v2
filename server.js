@@ -11,12 +11,6 @@ heading: 'Article One',
 date: 'March 6,2017',
 content: `
 <p>
-Content for my first article.Content for my first article.Content for my first article.Content for my first article.Content for my first article.
-</p>
-<p>
-Content for my first article. Content for my first article. Content for my first article.Content for my first article.Content for my first article.
-</p>
-<p>
 Content for my first article. Content for my first article. Content for my first article.Content for my first article.Content for my first article.
 </p>`
 },
