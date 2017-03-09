@@ -70,8 +70,9 @@ var htmltemplate = `
      $(content)
       </div>
   </body>  
-</html>`;
-return htmltemplate;
+</html>
+`;
+return htmlTemplate;
 } 
 
 app.get('/', function (req, res) {
