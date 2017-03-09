@@ -70,8 +70,7 @@ var htmltemplate = `
      $(content)
       </div>
   </body>  
-</html>
-`;
+</html>`;
 return htmltemplate;
 } 
 
