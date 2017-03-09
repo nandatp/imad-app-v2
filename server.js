@@ -67,6 +67,7 @@ var htmltemplate = `
       <div>
           $(date)
       </div>
+      <div>
      $(content)
       </div>
   </body>  
