@@ -1,86 +1,116 @@
 var express = require('express');
 var morgan = require('morgan');
 var path = require('path');
+
 var app = express();
 app.use(morgan('combined'));
 
-var articles = {
-'article-one': {
-title: 'Article One | Nanda',
-heading: 'Article One',
-date: 'March 6,2017',
-content: `
-<p>
-Content for my first article. Content for my first article. Content for my first article.Content for my first article.Content for my first article.
-</p>`
-},
-'article-two': {
-title: 'Article Two | Nanda',
-heading: 'Article Two',
-date: 'March 7,2017',
-content: `
-<p>
-Content for my Second article.
 
-</p>`
+var articles = {
+
+articleone: {
+    title: 'Article One | Heern Darji',
+    heading: 'Article One',
+    date: 'Feb 16, 2017',
+    content: `  <p>This is the fucking first line.his is the fucking first line.his is the fucking first line.his is the fucking first line.his is the fucking first line.his is the fucking first line.his is the fucking first line.his is the fucking first line.</p>
+
+                    <p>This is the fucking first line.his is the fucking first line.his is the fucking first line.his is the fucking first line.his is the fucking first line.his is the fucking first line.his is the fucking first line.his is the fucking first line.</p>
+
+                    <p>This is the fucking first line.his is the fucking first line.his is the fucking first line.his is the fucking first line.his is the fucking first line.his is the fucking first line.his is the fucking first line.his is the fucking first line.</p>
+
+                    <p>This is the fucking first line.his is the fucking first line.his is the fucking first line.his is the fucking first line.his is the fucking first line.his is the fucking first line.his is the fucking first line.his is the fucking first line.</p>
+
+                    <p>This is the fucking first line.his is the fucking first line.his is the fucking first line.his is the fucking first line.his is the fucking first line.his is the fucking first line.his is the fucking first line.his is the fucking first line.</p>`
+
 },
-'article-three': {
-    title: 'Article Three | Nanda',
-heading: 'Article Three',
-date: 'March 8,2017',
-content: `
-<p>
-Content for my third article.
-</p>`
+articletwo: {
+    title: 'Article Two | Heern Darji',
+    heading: 'Article Two',
+    date: 'Feb 16, 2017',
+    content: `  <p>This is the fucking first line.his is the fucking first line.his is the fucking first line.his is the fucking first line.his is the fucking first line.his is the fucking first line.his is the fucking first line.his is the fucking first line.</p>
+
+                    <p>This is the fucking first line.his is the fucking first line.his is the fucking first line.his is the fucking first line.his is the fucking first line.his is the fucking first line.his is the fucking first line.his is the fucking first line.</p>
+
+                    <p>This is the fucking first line.his is the fucking first line.his is the fucking first line.his is the fucking first line.his is the fucking first line.his is the fucking first line.his is the fucking first line.his is the fucking first line.</p>
+
+                    <p>This is the fucking first line.his is the fucking first line.his is the fucking first line.his is the fucking first line.his is the fucking first line.his is the fucking first line.his is the fucking first line.his is the fucking first line.</p>
+
+                    <p>This is the fucking first line.his is the fucking first line.his is the fucking first line.his is the fucking first line.his is the fucking first line.his is the fucking first line.his is the fucking first line.his is the fucking first line.</p>`
+                  },
+articlethree: {
+     title: 'Article Three | Heern Darji',
+    heading: 'Article Three',
+    date: 'Feb 16, 2017',
+    content: `  <p>This is the fucking first line.his is the fucking first line.his is the fucking first line.his is the fucking first line.his is the fucking first line.his is the fucking first line.his is the fucking first line.his is the fucking first line.</p>
+
+                    <p>This is the fucking first line.his is the fucking first line.his is the fucking first line.his is the fucking first line.his is the fucking first line.his is the fucking first line.his is the fucking first line.his is the fucking first line.</p>
+
+                    <p>This is the fucking first line.his is the fucking first line.his is the fucking first line.his is the fucking first line.his is the fucking first line.his is the fucking first line.his is the fucking first line.his is the fucking first line.</p>
+
+                    <p>This is the fucking first line.his is the fucking first line.his is the fucking first line.his is the fucking first line.his is the fucking first line.his is the fucking first line.his is the fucking first line.his is the fucking first line.</p>
+
+                    <p>This is the fucking first line.his is the fucking first line.his is the fucking first line.his is the fucking first line.his is the fucking first line.his is the fucking first line.his is the fucking first line.his is the fucking first line.</p>`
 }
+
 };
 
-function createTemplate (data){
-var title = data.title;
-var date = data.date;
-var heading = data.heaading;
-var content = data.content;
+function createTemplate(data){
+    var title = data.title;
+    var heading = data.heading;
+    var date = data.date;
+    var content = data.content;
+    var htmlTemplate = `
+        <html>
+          <head>
+                            <title>${title}</title>
+                             <link href="/ui/style.css" rel="stylesheet" />
+                        </head>
 
-var htmltemplate = `
-<html>
- <head>
-     <title>
-         $(title)
-     </title>
-     <link href="/ui/style.css" rel="stylesheet" />
- </head>   
-  <body>
-      <div class="container">
-      <div>
-          <a href="/">Home</a>
-      </div>
-      <hr/>
-      <h3>
-          $(heading)
-      </h3>
-      <div>
-          $(date)
-      </div>
-      <div>
-     $(content)
-      </div>
-      </div>
-  </body>  
-</html>
-`;
-return htmlTemplate;
-} 
+
+                        <body>
+                            <div class="container">
+                                <div>
+                                <a href="/">Home</a>
+                                </div>
+                                </hr>
+                                <h3>${heading}</h3>
+                                <div>
+                                    ${date}
+                                </div>
+
+                                <div>
+                                ${content}
+
+                                </div>
+                            </div>
+                        </body>
+                    </html>
+                    `;
+
+
+    return htmlTemplate;
+
+};
 
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
 
-app.get('/:articleName', function (req, res){
-  //articleName == article-one
-  //articles[articleName] == {} content object for article one
-  var articleName = req.params.articleName;
-  res.send(CreateTemplate(articles[articleName]));
+
+app.get('/:articleName', function (req, res) {
+    var articleName = req.params.articleName;
+  res.send(createTemplate(articles[articleName]));
 });
+
+/*app.get('/article-two', function (req, res) {
+  res.sendFile(path.join(__dirname, 'ui', 'article-two.html'));
+});
+
+app.get('/article-three', function (req, res) {
+  res.sendFile(path.join(__dirname, 'ui', 'article-three.html'));
+});
+*/
+
 app.get('/ui/style.css', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'style.css'));
 });
