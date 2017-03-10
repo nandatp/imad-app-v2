@@ -9,9 +9,9 @@ var marginleft = 0;
 function moveRight () 
 {
 marginleft = marginleft + 5;
-img.style.marginleft = marginLeft + 'px';
+madi.style.marginleft = marginLeft + 'px';
 }
-img.onclick = function ()
+madi.onclick = function ()
 {
 var interval = setInterval(moveRight, 50);
 };
