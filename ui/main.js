@@ -1,12 +1,18 @@
 console.log('Loaded!');
-// main text change
+//change the text of center text
 var element = document.getElementById('main-text');
+element.innerHTML = 'New Value';
 
-element.innerHtml = 'New Value';
-
-//move img
+//move image
 var img = document.getElementById('madi');
-img.onclick = function () {
-    img.style.marginLeft = '100px';
-    };
+var marginleft = 0;
+function moveRight () 
+{
+marginleft = marginleft + 5;
+img.style.marginleft = marginleft + 'px';
+}
+img.onclick = function ()
+{
+var interval = setInterval(moveRight, 50);
+}
     
