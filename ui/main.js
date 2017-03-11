@@ -1,18 +1,13 @@
-console.log('Loaded!');
-//change the text of center text
-var element = document.getElementById('main-text');
-element.innerHTML = 'New Value';
-
-//move image
-var img = document.getElementById('madi');
-var marginleft = 0;
-function moveRight () 
-{
-marginleft = marginleft + 5;
-madi.style.marginleft = marginLeft + 'px';
-}
-madi.onclick = function ()
-{
-var interval = setInterval(moveRight, 50);
-};
+var button = document.getElementById('counter');
+Var counter = 0;
+button.onclick = function () {
     
+    // Make a request to the counter endpoint
+    
+    // Capture the response and store it in a variable
+    
+    // Render the variable in the correct span
+    counter = counter + 1;
+    var span = document.getElementById('count');
+    span.innerHTML = counter.toString();
+};
