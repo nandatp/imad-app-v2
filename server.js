@@ -8,9 +8,9 @@ var express = require('express');
  var articleOne = {
      title: 'Article One | Nanda',
      heading:'Article One',
-     date: 'Mar 12, 2016'
+     date: 'Mar 12, 2016',
      content: `
-      <p>
+     <p>
                     This is the content for my first article.is is the content for my first article.is is the content for my first article.
                 </p>
                 <p>
