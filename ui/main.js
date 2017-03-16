@@ -1,5 +1,4 @@
 // counter Code
-alert('xxx');
 var button = document.getElementById('counter');
 
 button.onclick = function() {
@@ -20,3 +19,4 @@ request.onreadystatechange = function () {
 };
 request.open('GET', 'http://nandatp.imad.hasura-app.io/counter', true);
 request.send(null);
+};
