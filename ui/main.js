@@ -1,17 +1,22 @@
 // counter Code
 alert('xxx');
 var button = document.getElementById('counter');
-var counter = 0;
+
 button.onclick = function() {
  
  
-// Make a request to counter end point
+// create the request object
+var request = new XMLHttpRequest();
 
-// capture the response
-
-// render the response
-
-counter = counter + 1;
-var span = document.getElementById('count');
-span.innerHTML = counter;
-} ;
+// capture the response and store it in the variable
+request.onreadystatechange = function () {
+    if(request.readyState === XMLHttpRequest.DONE) {
+        // take some action
+        if (request.status === 200) {
+            var counter = request.responseText;
+        }
+    }
+    // Not done yet
+};
+request.open('GET', 'http://nandatp.imad.hasura-app.io/counter', true);
+request.send(null);
