@@ -8,7 +8,7 @@ var express = require('express');
    database: 'nandatp',
    host: 'db.imad.hasura-app.io',
    port: '5432',
-   password: 'db-nandatp-63950',
+   password: 'process.env.DB_PASSWORD',
  };
  
  var app = express();
